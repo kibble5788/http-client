@@ -1,8 +1,4 @@
-<div align="center">
-  <a  target="_blank">
-    <img alt="HTTP Client Library" width="200" src="https://avatars.githubusercontent.com/u/64576149?s=200&v=4"/>
-  </a>
-</div>
+
 <div align="center">
   <h1>HTTP Client Library</h1>
 </div>
