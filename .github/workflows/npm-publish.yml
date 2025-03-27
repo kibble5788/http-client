@@ -25,17 +25,15 @@ jobs:
           registry-url: https://registry.npmjs.org/
 
       - name: install
-        run: yarn run dependencies
+        run: npm install
+      - name: build
+        run: npm run build
 
       - name: setup node
         uses: actions/setup-node@v3
         with:
           node-version: 16
-          cache: 'yarn'
-
-      - name: run-icon
-        run: yarn icon
-
+          cache: 'npm'
       - run: npm publish --access=public --tag=${{ github.event.inputs.dist_tag }}
         env:
           NODE_AUTH_TOKEN: ${{secrets.ARCO_BOT_NPM_TOKEN}}
