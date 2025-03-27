@@ -1,14 +1,29 @@
-# HTTP客户端库
+<div align="center">
+  <h1>HTTP 客户端库</h1>
+</div>
 
-这是一个基于依赖倒置原则设计的TypeScript HTTP请求库，支持底层使用Fetch API或XMLHttpRequest。
+<div align="center">
+
+这是一个基于依赖倒置原则设计的 TypeScript HTTP 请求库，支持在底层使用 Fetch API 或 XMLHttpRequest。
+
+[![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/arco-design/arco-design/blob/main/LICENSE)
+
+</div>
+
+<div align="center">
+
+[English](./README.md) | 简体中文
+
+</div>
+ 
 
 ## 特性
 
 - 🔄 依赖倒置设计 - 高层模块不依赖于低层模块的具体实现
-- 🔌 可插拔引擎 - 支持Fetch API和XMLHttpRequest
-- 🔧 灵活可配置 - 丰富的请求配置选项
-- 🔗 拦截器支持 - 可以拦截请求和响应进行自定义处理
-- 📦 类型安全 - 使用TypeScript编写，提供完整的类型定义
+- 🔌 可插拔引擎 - 支持 Fetch API 和 XMLHttpRequest
+- 🔧 灵活配置 - 丰富的请求配置选项
+- 🔗 拦截器支持 - 可拦截请求和响应进行自定义处理
+- 📦 类型安全 - 使用 TypeScript 编写，提供完整的类型定义
 
 ## 安装
 
@@ -18,15 +33,15 @@ npm install http-client
 
 ## 使用方法
 
-### 基本使用
+### 基本用法
 
 ```typescript
 import HttpClientFactory from 'http-client';
 
-// 创建HTTP客户端 (默认使用Fetch引擎)
+// 创建 HTTP 客户端（默认使用 Fetch 引擎）
 const httpClient = HttpClientFactory.create();
 
-// 发送GET请求
+// 发送 GET 请求
 httpClient.get('https://api.example.com/users')
   .then(response => {
     console.log(response.data);
@@ -35,7 +50,7 @@ httpClient.get('https://api.example.com/users')
     console.error(error);
   });
 
-// 发送POST请求
+// 发送 POST 请求
 httpClient.post('https://api.example.com/users', {
   name: '张三',
   email: 'zhangsan@example.com'
@@ -48,14 +63,14 @@ httpClient.post('https://api.example.com/users', {
 ### 选择引擎
 
 ```typescript
-// 使用Fetch API引擎
+// 使用 Fetch API 引擎
 const fetchClient = HttpClientFactory.createFetch();
 
-// 使用XMLHttpRequest引擎
+// 使用 XMLHttpRequest 引擎
 const xhrClient = HttpClientFactory.createXhr();
 
-// 或者通过参数选择
-const client = HttpClientFactory.create('xhr'); // 'fetch'或'xhr'
+// 或通过参数选择
+const client = HttpClientFactory.create('xhr'); // 'fetch' 或 'xhr'
 ```
 
 ### 配置请求
@@ -73,7 +88,7 @@ const httpClient = HttpClientFactory.create('fetch', {
 
 // 特定请求的配置
 httpClient.get('https://api.example.com/posts', {
-  params: { // URL查询参数
+  params: { // URL 查询参数
     page: 1,
     limit: 10
   },
@@ -110,7 +125,7 @@ const httpClient = HttpClientFactory.create('fetch', {
 });
 ```
 
-## API参考
+## API 参考
 
 ### HttpClientFactory
 
@@ -158,4 +173,4 @@ interface HttpResponse<T = any> {
 
 ## 许可证
 
-MIT 
+MIT
