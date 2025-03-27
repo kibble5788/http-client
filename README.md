@@ -8,7 +8,6 @@
 This is a TypeScript HTTP request library designed based on the dependency inversion principle, supporting the use of Fetch API or XMLHttpRequest at the underlying layer.
 
 [![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/arco-design/arco-design/blob/main/LICENSE)
-[![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/arco-design/awesome-arco)
 
 </div>
 
