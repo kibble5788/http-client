@@ -1,53 +1,32 @@
-<div align="center">
-  <a  target="_blank">
-    <img alt="HTTP Client Library" width="200" src="https://avatars.githubusercontent.com/u/64576149?s=200&v=4"/>
-  </a>
-</div>
-<div align="center">
-  <h1>HTTP Client Library</h1>
-</div>
+# HTTP客户端库
 
-<div align="center">
+这是一个基于依赖倒置原则设计的TypeScript HTTP请求库，支持底层使用Fetch API或XMLHttpRequest。
 
-This is a TypeScript HTTP request library designed based on the dependency inversion principle, supporting the use of Fetch API or XMLHttpRequest at the underlying layer.
+## 特性
 
-[![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/arco-design/arco-design/blob/main/LICENSE)
-[![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/arco-design/awesome-arco)
+- 🔄 依赖倒置设计 - 高层模块不依赖于低层模块的具体实现
+- 🔌 可插拔引擎 - 支持Fetch API和XMLHttpRequest
+- 🔧 灵活可配置 - 丰富的请求配置选项
+- 🔗 拦截器支持 - 可以拦截请求和响应进行自定义处理
+- 📦 类型安全 - 使用TypeScript编写，提供完整的类型定义
 
-</div>
-
-<div align="center">
-
-English | [简体中文](./README.zh-CN.md)
-
-</div>
- 
-
-## Features
-
-- 🔄 Dependency Inversion Design - High-level modules do not depend on specific implementations of low-level modules
-- 🔌 Pluggable Engines - Supports Fetch API and XMLHttpRequest
-- 🔧 Flexible Configuration - Rich request configuration options
-- 🔗 Interceptor Support - Can intercept requests and responses for custom processing
-- 📦 Type Safety - Written in TypeScript, providing complete type definitions
-
-## Installation
+## 安装
 
 ```bash
 npm install http-client
 ```
 
-## Usage
+## 使用方法
 
-### Basic Usage
+### 基本使用
 
 ```typescript
 import HttpClientFactory from 'http-client';
 
-// Create HTTP client (uses Fetch engine by default)
+// 创建HTTP客户端 (默认使用Fetch引擎)
 const httpClient = HttpClientFactory.create();
 
-// Send GET request
+// 发送GET请求
 httpClient.get('https://api.example.com/users')
   .then(response => {
     console.log(response.data);
@@ -56,9 +35,9 @@ httpClient.get('https://api.example.com/users')
     console.error(error);
   });
 
-// Send POST request
+// 发送POST请求
 httpClient.post('https://api.example.com/users', {
-  name: 'Zhang San',
+  name: '张三',
   email: 'zhangsan@example.com'
 })
   .then(response => {
@@ -66,23 +45,23 @@ httpClient.post('https://api.example.com/users', {
   });
 ```
 
-### Selecting an Engine
+### 选择引擎
 
 ```typescript
-// Use Fetch API engine
+// 使用Fetch API引擎
 const fetchClient = HttpClientFactory.createFetch();
 
-// Use XMLHttpRequest engine
+// 使用XMLHttpRequest引擎
 const xhrClient = HttpClientFactory.createXhr();
 
-// Or select through parameters
-const client = HttpClientFactory.create('xhr'); // 'fetch' or 'xhr'
+// 或者通过参数选择
+const client = HttpClientFactory.create('xhr'); // 'fetch'或'xhr'
 ```
 
-### Configuring Requests
+### 配置请求
 
 ```typescript
-// Set default configuration
+// 设置默认配置
 const httpClient = HttpClientFactory.create('fetch', {
   headers: {
     'Content-Type': 'application/json',
@@ -92,9 +71,9 @@ const httpClient = HttpClientFactory.create('fetch', {
   withCredentials: true
 });
 
-// Configuration for specific requests
+// 特定请求的配置
 httpClient.get('https://api.example.com/posts', {
-  params: { // URL query parameters
+  params: { // URL查询参数
     page: 1,
     limit: 10
   },
@@ -104,13 +83,13 @@ httpClient.get('https://api.example.com/posts', {
 });
 ```
 
-### Using Interceptors
+### 使用拦截器
 
 ```typescript
 const httpClient = HttpClientFactory.create('fetch', {
-  // Request interceptor
+  // 请求拦截器
   requestInterceptor: (config) => {
-    // Add authentication header before sending request
+    // 在发送请求前添加认证头
     return {
       ...config,
       headers: {
@@ -120,9 +99,9 @@ const httpClient = HttpClientFactory.create('fetch', {
     };
   },
   
-  // Response interceptor
+  // 响应拦截器
   responseInterceptor: (response) => {
-    // Can handle responses uniformly
+    // 可以统一处理响应
     if (response.status >= 400) {
       handleError(response);
     }
@@ -131,7 +110,7 @@ const httpClient = HttpClientFactory.create('fetch', {
 });
 ```
 
-## API Reference
+## API参考
 
 ### HttpClientFactory
 
@@ -177,6 +156,6 @@ interface HttpResponse<T = any> {
 }
 ```
 
-## License
+## 许可证
 
 MIT 
