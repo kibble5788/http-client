@@ -34,4 +34,4 @@ jobs:
           cache: 'npm'
       - run: npm publish --access=public  
         env:
-          NODE_AUTH_TOKEN: ${{secrets.ARCO_BOT_NPM_TOKEN}}
+          NODE_AUTH_TOKEN: ${{secrets.KED3_BOT_NPM_TOKEN}}
