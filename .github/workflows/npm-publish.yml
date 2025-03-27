@@ -10,8 +10,6 @@ on:
         type: choice
         options:
           - latest
-          - beta
-          - alpha
 
 jobs:
   publish-npm:
@@ -34,6 +32,6 @@ jobs:
         with:
           node-version: 16
           cache: 'npm'
-      - run: npm publish --access=public --tag=${{ github.event.inputs.dist_tag }}
+      - run: npm publish --access=public  
         env:
           NODE_AUTH_TOKEN: ${{secrets.ARCO_BOT_NPM_TOKEN}}
